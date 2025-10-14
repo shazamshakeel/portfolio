@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Badge } from "./ui/badge";
-
+import { ExternalLinkIcon } from "lucide-react";
 interface Props {
   title: string;
   description: string;
@@ -19,25 +19,24 @@ export function ProjectCard({ title, description, tags, link }: Props) {
     <Card className="flex flex-col overflow-hidden border border-gray-800/50 p-4 transition-all duration-300 hover:border-gray-700">
       <CardHeader className="pb-3">
         <div className="space-y-2">
-          <CardTitle className="text-base font-semibold">
-            {link ? (
+          <CardTitle>
+            <div>
               <a
                 href={link}
                 target="_blank"
-                className="inline-flex gap-2 transition-colors duration-200 hover:text-blue-400"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-blue-400"
               >
-                {title}
-                <span
-                  className="mt-2.5 h-1.5 w-1.5 rounded-full bg-green-500"
-                  title="View Project"
-                  aria-label="External link indicator"
-                />
+                <h3 className="text-balance text-base font-semibold">
+                  {title}
+                </h3>
+                <span>
+                  <ExternalLinkIcon className="h-4 w-4" />
+                </span>
               </a>
-            ) : (
-              title
-            )}
+            </div>
           </CardTitle>
-          <CardDescription className="text-sm print:text-[10px]">
+          <CardDescription className="text-sm leading-relaxed print:text-[10px]">
             {description}
           </CardDescription>
         </div>

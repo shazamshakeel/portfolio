@@ -14,12 +14,13 @@ import { ProjectCard } from "@/components/project-card";
 import type { Metadata } from "next";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import parse from "html-react-parser";
 
 // Generate metadata for this page
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${RESUME_DATA.name} - Portfolio & Resume`,
-    description: RESUME_DATA.summary,
+    description: RESUME_DATA.summary.split(/\n+/).join(" ").trim(),
   };
 }
 
@@ -34,7 +35,7 @@ export default async function Page() {
     url: RESUME_DATA.personalWebsiteUrl,
     image: RESUME_DATA.imageUrl,
     jobTitle: RESUME_DATA.about,
-    description: RESUME_DATA.summary,
+    description: RESUME_DATA.summary.split(/\n+/).join(" ").trim(),
     email: RESUME_DATA.contact.email,
     telephone: RESUME_DATA.contact.tel,
     sameAs: RESUME_DATA.contact.social.map((social) => social.url),
@@ -161,36 +162,9 @@ export default async function Page() {
               <h2 id="about-heading" className="text-2xl font-bold">
                 About
               </h2>
-              <p className="whitespace-pre-line text-pretty text-sm text-gray-300 print:text-[12px]">
+              <p className="whitespace-pre-line text-pretty text-sm leading-relaxed text-gray-300 print:text-[12px]">
                 {RESUME_DATA.summary}
               </p>
-            </Section>
-          </FadeIn>
-
-          {/* Skills Section */}
-          <FadeIn>
-            <Section aria-labelledby="skills-heading">
-              <h2 id="skills-heading" className="text-2xl font-bold">
-                Skills
-              </h2>
-              <div className="space-y-4">
-                {RESUME_DATA.skills.map((skillCategory: any) => (
-                  <div key={skillCategory.title}>
-                    <h3 className="mb-3 text-base font-semibold text-gray-300">
-                      {skillCategory.title}
-                    </h3>
-                    <ul className="flex flex-wrap gap-2" role="list">
-                      {skillCategory.list.map((skill: string) => (
-                        <li key={skill}>
-                          <Badge className="text-xs print:text-xs">
-                            {skill}
-                          </Badge>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
             </Section>
           </FadeIn>
 
@@ -217,6 +191,33 @@ export default async function Page() {
                       </p>
                     </div>
                   </Card>
+                ))}
+              </div>
+            </Section>
+          </FadeIn>
+
+          {/* Skills Section */}
+          <FadeIn>
+            <Section aria-labelledby="skills-heading">
+              <h2 id="skills-heading" className="text-2xl font-bold">
+                Skills
+              </h2>
+              <div className="space-y-4">
+                {RESUME_DATA.skills.map((skillCategory: any) => (
+                  <div key={skillCategory.title}>
+                    <h3 className="mb-3 text-base font-semibold text-gray-300">
+                      {skillCategory.title}
+                    </h3>
+                    <ul className="flex flex-wrap gap-2" role="list">
+                      {skillCategory.list.map((skill: string) => (
+                        <li key={skill}>
+                          <Badge className="text-xs print:text-xs">
+                            {skill}
+                          </Badge>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
             </Section>
@@ -282,7 +283,7 @@ export default async function Page() {
                             </div>
 
                             {experience.description && (
-                              <p className="mb-2 whitespace-pre-line text-sm print:text-[11px]">
+                              <p className="mb-2 whitespace-pre-line text-sm leading-relaxed print:text-[11px]">
                                 {experience.description}
                               </p>
                             )}
@@ -300,45 +301,8 @@ export default async function Page() {
                                           className="mt-[0.25em] h-3 w-3 flex-shrink-0 text-gray-400"
                                           aria-hidden="true"
                                         />
-                                        <span className="flex items-center gap-x-1">
-                                          {point.text}
-                                          {point.link && (
-                                            <a
-                                              href={point.link}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="inline-flex items-center hover:text-blue-500"
-                                              aria-label="View related link"
-                                            >
-                                              <ExternalLinkIcon className="ml-1 h-3 w-3" />
-                                            </a>
-                                          )}
-                                          {point.links &&
-                                            point.links.length > 0 && (
-                                              <span className="ml-1 flex items-center space-x-1">
-                                                {point.links.map(
-                                                  (
-                                                    link: {
-                                                      name: string;
-                                                      url: string;
-                                                    },
-                                                    linkIndex: number,
-                                                  ) => (
-                                                    <a
-                                                      key={linkIndex}
-                                                      href={link.url}
-                                                      target="_blank"
-                                                      rel="noopener noreferrer"
-                                                      className="inline-flex items-center hover:text-blue-500"
-                                                      aria-label={`View ${link.name}`}
-                                                      title={link.name}
-                                                    >
-                                                      <ExternalLinkIcon className="h-3 w-3" />
-                                                    </a>
-                                                  ),
-                                                )}
-                                              </span>
-                                            )}
+                                        <span className="leading-relaxed">
+                                          {parse(point)}
                                         </span>
                                       </li>
                                     ),
@@ -369,20 +333,25 @@ export default async function Page() {
                   <li key={oss.repository}>
                     <Card>
                       <CardHeader>
-                        <h3 className="text-balance text-base font-semibold">
+                        <div>
                           <a
                             href={oss.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex gap-2 transition-colors duration-200 hover:text-blue-400"
+                            className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-blue-400"
                           >
-                            {oss.title} — {oss.repository}
+                            <h3 className="text-balance text-base font-semibold">
+                              {oss.title} — {oss.repository}
+                            </h3>
+                            <span>
+                              <ExternalLinkIcon className="h-4 w-4" />
+                            </span>
                           </a>
-                        </h3>
+                        </div>
                       </CardHeader>
                       <CardContent className="mt-2">
                         {oss.description && (
-                          <p className="mb-2 whitespace-pre-line text-sm print:text-[11px]">
+                          <p className="mb-2 whitespace-pre-line text-sm leading-relaxed print:text-[11px]">
                             {oss.description}
                           </p>
                         )}
@@ -396,41 +365,8 @@ export default async function Page() {
                                     className="mt-[0.25em] h-3 w-3 flex-shrink-0 text-gray-400"
                                     aria-hidden="true"
                                   />
-                                  <span className="flex items-center gap-x-1">
-                                    {point.text}
-                                    {point.link && (
-                                      <a
-                                        href={point.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center hover:text-blue-500"
-                                        aria-label="View contribution"
-                                      >
-                                        <ExternalLinkIcon className="ml-1 h-3 w-3" />
-                                      </a>
-                                    )}
-                                    {point.links && point.links.length > 0 && (
-                                      <span className="ml-1 flex items-center space-x-1">
-                                        {point.links.map(
-                                          (
-                                            link: { name: string; url: string },
-                                            linkIndex: number,
-                                          ) => (
-                                            <a
-                                              key={linkIndex}
-                                              href={link.url}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="inline-flex items-center hover:text-blue-500"
-                                              aria-label={`View ${link.name}`}
-                                              title={link.name}
-                                            >
-                                              <ExternalLinkIcon className="h-3 w-3" />
-                                            </a>
-                                          ),
-                                        )}
-                                      </span>
-                                    )}
+                                  <span className="leading-relaxed">
+                                    {point}
                                   </span>
                                 </li>
                               ),

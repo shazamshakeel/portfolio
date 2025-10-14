@@ -8,7 +8,7 @@ export const RESUME_DATA = {
   description:
     "Full Stack Software Engineer with 3+ years in the tech industry. Worked on B2C, e-commerce, enterprise SaaS, and FinTech applications.",
   summary:
-    "Frontend Developer with 3+ years of experience specializing in architecting and deploying scalable, high-performance web platforms. Expert in TypeScript, Next.js (Streaming, ISR, Partial Hydration), and advanced state management (Redux Toolkit). Proven track record of leveraging real-time technologies (WebSockets, HLS streaming) and optimized search solutions (Typesense) to drive business results.",
+    "I’m Shazam Shakeel, a Software Engineer and Full Stack Developer with over three years of experience building modern, high-quality web applications for businesses and startups. I’ve worked on eCommerce, SaaS, and enterprise platforms, helping companies enhance their digital presence, streamline operations, and provide smoother user experiences.\n\nAt Vintega Solutions, I led the development of large-scale platforms for clients in the Middle East (KSA and UAE), managing a small team and helping improve performance, security, and customer engagement. I also designed admin panels, search systems, and analytics dashboards that enabled teams to make smarter, data-driven decisions.\n\nI’m passionate about creating products that are visually appealing, user-friendly, and business-focused—whether that involves boosting website performance, developing new features, or automating processes. My goal is to help companies and clients turn ideas into reliable, impactful digital solutions that produce real results.",
   imageUrl: "https://avatars.githubusercontent.com/u/40428253?v=4",
   personalWebsiteUrl: "https://shazamshakeel.vercel.app",
 
@@ -90,35 +90,28 @@ export const RESUME_DATA = {
       badges: ["Full-Time", "On-Site"],
       experiences: [
         {
-          title: "MERN Stack Developer",
-          start: "May 2022",
+          title: "Full Stack Developer",
+          start: "May 2025",
           end: "Present",
           description: "",
           bulletPoints: [
-            {
-              text: "Led frontend development of eCommerce platform and its Admin Panel targeting the KSA market, implementing internationalization support and advanced Next.js features (Streaming, Partial Hydration, Server-Side Authentication) to achieve GTmetrix grade B and Lighthouse scores of 89 (SSR) and 95 (static).",
-              links: [],
-            },
-            {
-              text: "Developed comprehensive auction ecosystem utilizing WebSocket technology and HLS streaming protocol, supporting 10,000+ concurrent users with real-time bidding updates, dynamic time extensions, and live notifications, resulting in a 15% increase in session duration and a 12% reduction in bounce rate.",
-              links: [],
-            },
-            {
-              text: "Built high-performance product search system using Typesense, implementing complex filters through URL query parameters to deliver sub-100ms query responses and improve SEO through search-friendly URLs.",
-              links: [],
-            },
-            {
-              text: "Ensured secure workflows across a 4-tier organizational structure by implementing Role-Based Access Control (RBAC) system with custom permissions for organizational departments.",
-              links: [],
-            },
-            {
-              text: "Enabled data-driven decisions by integrating Google Tag Manager and Google Analytics, providing actionable insights into user behavior and full customer journey tracking.",
-              links: [],
-            },
-            {
-              text: "Ensured data integrity and reduced form-related errors by building scalable, multi-step form flows with layered validation.",
-              links: [],
-            },
+            "Led frontend development of two large-scale B2C platforms for KSA & UAE markets, leading a team of 5 and achieved Lighthouse scores of <strong>85+ (Performance)</strong> and <strong>100 (SEO)</strong>, by utilizing advanced <strong>Next.js</strong> features (SSR, Partial Hydration, Server-Side Authentication).",
+            "Engineered a facet-based search service for the eCommerce platform by migrating from MongoDB to <strong>Typesense</strong> (an in-memory engine), reducing query response times to <strong>sub-200ms</strong> and enabling typo-tolerant, instant product discovery.",
+            "Developed a live streaming module on the frontend of an auction site using <strong>HLS</strong> and <strong>WebSockets</strong>, reliably supporting <strong>10,000+ concurrent users</strong> with real-time bidding, chat, and notifications, improving session duration by <strong>15%</strong>.",
+            "Built a four-level deep Role Based Access Control backend system for secure authentication and authorization with customizable permissions, providing precise access control for users and administrators across different modules and data.",
+          ],
+        },
+        {
+          title: "Frontend Developer",
+          start: "May 2022",
+          end: "Apr 2025",
+          description: "",
+          bulletPoints: [
+            "Designed a comprehensive, personalized Admin Panel for Merchants, Vendors Management, and Marketing/Sales Teams, which contributed to expanding market reach and increasing merchant adoption by <strong>30%</strong> through tailored user experiences.",
+            "Integrated Google Tag Manager and Google Analytics for granular customer journey tracking, and built a custom administrative UI to visualize key insights (<strong>sales funnels, heat maps</strong>), enabling data-driven personalization strategies.",
+            "Optimized complex multi-step form-handling system with layered, adaptive validation logic for interdependent fields, ensuring <strong>100% data integrity</strong> and scalability for high-volume data submissions.",
+            "Contributed to context-aware <strong>AI Chat</strong>, implementing seamless integration with the MS Teams file selection service, notebook drafts sharing and inline spreadsheet editor for direct, prompt-driven data manipulation.",
+            "Integrated secure <strong>payment gateways (Bank Alfalah, Checkout)</strong> and contributed to the open-source Bank Alfalah Payment Integration library, ensuring reliable and seamless transaction processing.",
           ],
         },
       ],
@@ -134,26 +127,11 @@ export const RESUME_DATA = {
           end: "Apr 2022",
           description: "",
           bulletPoints: [
-            {
-              text: "Developed scalable, high-performance web applications with a focus on responsive UI design and smooth user experience across devices.",
-              links: [],
-            },
-            {
-              text: "Implemented data modeling and schema management using Sequelize ORM with PostgreSQL, improving backend consistency and query efficiency.",
-              links: [],
-            },
-            {
-              text: "Integrated third-party APIs, including Google Maps, to deliver location-based features and enhance functionality.",
-              links: [],
-            },
-            {
-              text: "Optimized application state management through Redux Toolkit implementation, reducing UI-related bugs and improving code maintainability across complex front-end architectures.",
-              links: [],
-            },
-            {
-              text: "Collaborated in an Agile environment, utilizing modern full-stack workflows, contributing to multiple projects through effective team coordination and professional coding practices.",
-              links: [],
-            },
+            "Designed and built scalable, high-performance web applications, prioritizing responsive user interfaces and seamless UX.",
+            "Utilized <strong>Sequelize ORM</strong> for efficient data modeling, schema management, and interaction with <strong>PostgreSQL</strong> databases.",
+            "Integrated third-party APIs, including <strong>Google Maps</strong>, to deliver advanced location-based features and enhance application functionality.",
+            "Optimized application state management through <strong>Redux Toolkit</strong> implementation, improving code maintainability and performance across complex front-end applications.",
+            "Gained practical experience with the organization's <strong>SDLC</strong>, Agile environment, tools and technologies, contributing to real-world development cycles.",
           ],
         },
       ],
@@ -168,10 +146,7 @@ export const RESUME_DATA = {
       title: "Co-Creator & Maintainer",
       description: "",
       bulletPoints: [
-        {
-          text: "Co-created an open-source payment integration library for Bank Alfalah Pakistan, addressing the lack of developer-friendly documentation by providing a ready-to-use React solution.",
-          links: [],
-        },
+        "Co-created an open-source payment integration library for Bank Alfalah Pakistan, addressing the lack of developer-friendly documentation by providing a ready-to-use React solution.",
       ],
     },
   ],
@@ -256,11 +231,11 @@ export const RESUME_DATA = {
         "Zod",
       ],
       description:
-        "MySouq is a B2C social commerce platform built on video-driven sales. It blends entertainment and shopping via live-show broadcasts and product ads, offering vendors and influencers a dynamic channel to boost engagement and market presence.",
+        "MySouq is a social eCommerce platform built on video-driven sales. It blends entertainment and shopping via live-show broadcasts and product ads, offering vendors and influencers a dynamic channel to boost engagement and market presence.",
       link: "https://mysouq.com",
     },
     {
-      title: "Employee Hub – Staff Management Platform",
+      title: "Employee Hub – Human Resource Management Platform",
       techStack: [
         "TypeScript",
         "React.js",
