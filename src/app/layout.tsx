@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description: RESUME_DATA.description,
 
   metadataBase: new URL(RESUME_DATA.personalWebsiteUrl),
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
+  },
 
   alternates: {
     canonical: "/",
@@ -139,10 +142,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta
-          name="google-site-verification"
-          content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || ""}
-        />
       </head>
       <body className={inter.className}>
         {children}
