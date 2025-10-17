@@ -141,7 +141,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta
           name="google-site-verification"
-          content="9ul0pLAKnzCEmrrwWoRYXIAQz3AFtibhZWDZ21Yul98"
+          content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || ""}
         />
       </head>
       <body className={inter.className}>
